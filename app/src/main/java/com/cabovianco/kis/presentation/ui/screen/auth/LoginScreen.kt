@@ -142,7 +142,13 @@ private fun EmailTextField(
         modifier = modifier.fillMaxWidth(),
         value = email,
         onValueChange = onEmailChange,
-        placeholder = stringResource(R.string.login_email_placeholder)
+        placeholder = stringResource(R.string.login_email_placeholder),
+        leadingIcon = {
+            Icon(
+                painter = painterResource(R.drawable.email),
+                contentDescription = null
+            )
+        }
     )
 }
 
@@ -156,7 +162,13 @@ private fun PasswordTextField(
         modifier = modifier.fillMaxWidth(),
         value = password,
         onValueChange = onPasswordChange,
-        placeholder = stringResource(R.string.login_password_placeholder)
+        placeholder = stringResource(R.string.login_password_placeholder),
+        leadingIcon = {
+            Icon(
+                painter = painterResource(R.drawable.password),
+                contentDescription = null
+            )
+        }
     )
 }
 
