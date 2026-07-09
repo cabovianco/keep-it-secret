@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.cabovianco.kis.presentation.ui.screen.auth.LoginScreen
 
 @Composable
 fun AppNavigation(modifier: Modifier = Modifier) {
@@ -19,7 +20,9 @@ fun AppNavigation(modifier: Modifier = Modifier) {
         enterTransition = { EnterTransition.None },
         exitTransition = { ExitTransition.None }
     ) {
-        composable<Screen.Auth.Login> {  }
+        composable<Screen.Auth.Login> {
+            LoginScreen()
+        }
 
         composable<Screen.Auth.Register> {  }
 
