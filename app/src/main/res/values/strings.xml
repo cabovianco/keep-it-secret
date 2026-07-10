@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">KIS</string>
-    <string name="login_welcome">Welcome back!</string>
+    
+    <string name="auth_email_placeholder">Email</string>
+    <string name="auth_password_placeholder">Password</string>
+
+    <string name="login_title">Welcome back!</string>
     <string name="login_subtitle">Sign in to continue</string>
-    <string name="login_email_placeholder">Email</string>
-    <string name="login_password_placeholder">Password</string>
     <string name="login_sign_in_button">Sign in</string>
     <string name="login_register_prompt">Don\'t have an account?</string>
+
+    <string name="register_title">Create an account</string>
+    <string name="register_subtitle">Sign up to get started</string>
+    <string name="register_username_placeholder">Username</string>
+    <string name="register_sign_up_button">Sign up</string>
+    <string name="register_login_prompt">Already have an account?</string>
 </resources>
