@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.cabovianco.kis.presentation.ui.screen.InboxScreen
 import com.cabovianco.kis.presentation.ui.screen.auth.LoginScreen
 import com.cabovianco.kis.presentation.ui.screen.auth.RegisterScreen
 
@@ -17,7 +18,7 @@ fun AppNavigation(modifier: Modifier = Modifier) {
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = Screen.Auth.Login,
+        startDestination = Screen.Inbox, //Screen.Auth.Login,
         enterTransition = { EnterTransition.None },
         exitTransition = { ExitTransition.None }
     ) {
@@ -29,8 +30,15 @@ fun AppNavigation(modifier: Modifier = Modifier) {
             RegisterScreen(onLoginClick = { navController.navigateUp() })
         }
 
-        composable<Screen.Inbox> { }
+        composable<Screen.Inbox> {
+            InboxScreen(
+                onAccountActionClick = { navController.navigate(Screen.Account) },
+                onComposeSecretFloatingActionClick = { navController.navigate(Screen.Compose) }
+            )
+        }
 
         composable<Screen.Compose> { }
+
+        composable<Screen.Account> { }
     }
 }

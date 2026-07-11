@@ -16,4 +16,7 @@ sealed interface Screen {
 
     @Serializable
     object Compose : Screen
+
+    @Serializable
+    object Account : Screen
 }
