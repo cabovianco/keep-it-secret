@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.cabovianco.kis.presentation.ui.screen.ComposeScreen
 import com.cabovianco.kis.presentation.ui.screen.InboxScreen
 import com.cabovianco.kis.presentation.ui.screen.auth.LoginScreen
 import com.cabovianco.kis.presentation.ui.screen.auth.RegisterScreen
@@ -37,7 +38,12 @@ fun AppNavigation(modifier: Modifier = Modifier) {
             )
         }
 
-        composable<Screen.Compose> { }
+        composable<Screen.Compose> {
+            ComposeScreen(
+                onNavBack = { navController.navigateUp() },
+                onComposeAndSendClick = { navController.navigateUp() }
+            )
+        }
 
         composable<Screen.Settings> { }
     }
