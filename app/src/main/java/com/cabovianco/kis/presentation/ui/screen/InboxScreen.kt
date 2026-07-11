@@ -47,13 +47,13 @@ import com.cabovianco.kis.presentation.ui.screen.shared.AppSecondaryButton
 
 @Composable
 fun InboxScreen(
-    onAccountActionClick: () -> Unit,
+    onSettingsActionClick: () -> Unit,
     onComposeSecretFloatingActionClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         modifier = modifier,
-        topBar = { TopBar(onAccountActionClick = onAccountActionClick) },
+        topBar = { TopBar(onSettingsActionClick = onSettingsActionClick) },
         floatingActionButton = { ComposeSecretFloatingAction(onClick = onComposeSecretFloatingActionClick) }
     ) {
         InboxContent(
@@ -322,7 +322,7 @@ private fun SecretCloseButton(onClick: () -> Unit, modifier: Modifier = Modifier
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TopBar(onAccountActionClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun TopBar(onSettingsActionClick: () -> Unit, modifier: Modifier = Modifier) {
     TopAppBar(
         modifier = modifier,
         title = {
@@ -331,18 +331,18 @@ private fun TopBar(onAccountActionClick: () -> Unit, modifier: Modifier = Modifi
                 style = MaterialTheme.typography.titleLarge
             )
         },
-        actions = { AccountAction(onClick = onAccountActionClick) }
+        actions = { SettingsAction(onClick = onSettingsActionClick) }
     )
 }
 
 @Composable
-private fun AccountAction(onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun SettingsAction(onClick: () -> Unit, modifier: Modifier = Modifier) {
     IconButton(
         modifier = modifier,
         onClick = onClick
     ) {
         Icon(
-            painter = painterResource(R.drawable.account),
+            painter = painterResource(R.drawable.settings),
             contentDescription = null
         )
     }

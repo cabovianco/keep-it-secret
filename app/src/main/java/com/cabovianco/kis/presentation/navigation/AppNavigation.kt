@@ -32,13 +32,13 @@ fun AppNavigation(modifier: Modifier = Modifier) {
 
         composable<Screen.Inbox> {
             InboxScreen(
-                onAccountActionClick = { navController.navigate(Screen.Account) },
+                onSettingsActionClick = { navController.navigate(Screen.Settings) },
                 onComposeSecretFloatingActionClick = { navController.navigate(Screen.Compose) }
             )
         }
 
         composable<Screen.Compose> { }
 
-        composable<Screen.Account> { }
+        composable<Screen.Settings> { }
     }
 }
