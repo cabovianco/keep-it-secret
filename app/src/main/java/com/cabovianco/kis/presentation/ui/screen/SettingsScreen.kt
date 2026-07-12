@@ -9,6 +9,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -30,30 +31,48 @@ fun SettingsScreen(
         modifier = modifier,
         topBar = { TopBar(onNavBack = onNavBack) }
     ) {
-        SettingsContent(modifier = Modifier.padding(it))
+        SettingsContent(
+            isNotificationEnabled = true,
+            onNotificationEnabledChange = {},
+            modifier = Modifier.padding(it)
+        )
     }
 }
 
 @Composable
-private fun SettingsContent(modifier: Modifier = Modifier) {
+private fun SettingsContent(
+    isNotificationEnabled: Boolean,
+    onNotificationEnabledChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier = modifier
             .fillMaxSize()
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        AccountMenu()
+        AccountMenu(
+            isNotificationEnabled = isNotificationEnabled,
+            onNotificationEnabledChange = onNotificationEnabledChange
+        )
     }
 }
 
 @Composable
-private fun AccountMenu(modifier: Modifier = Modifier) {
+private fun AccountMenu(
+    isNotificationEnabled: Boolean,
+    onNotificationEnabledChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier
+) {
     AppMenu(
         modifier = modifier,
         menu = Menu(
             title = stringResource(R.string.settings_account_menu_title),
             items = listOf(
-                notificationMenuOption { },
+                notificationMenuOption(
+                    isChecked = isNotificationEnabled,
+                    onCheckedChange = onNotificationEnabledChange
+                ),
                 logoutMenuOption { },
                 deleteAccountMenuOption { }
             )
@@ -62,16 +81,27 @@ private fun AccountMenu(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun notificationMenuOption(onClick: () -> Unit): MenuItem {
+private fun notificationMenuOption(
+    isChecked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+): MenuItem {
     return MenuItem(
         title = stringResource(R.string.settings_account_menu_notification_option),
-        onClick = onClick,
+        onClick = {},
         leadingContent = {
             Icon(
                 painter = painterResource(R.drawable.notification),
                 contentDescription = null
             )
-        }
+        },
+        trailingContent = {
+            Switch(
+                modifier = Modifier.padding(end = 32.dp),
+                checked = isChecked,
+                onCheckedChange = onCheckedChange
+            )
+        },
+        clickable = false
     )
 }
 
@@ -100,7 +130,7 @@ private fun deleteAccountMenuOption(onClick: () -> Unit): MenuItem {
                 contentDescription = null
             )
         },
-        enabled = false
+        clickable = false
     )
 }
 
