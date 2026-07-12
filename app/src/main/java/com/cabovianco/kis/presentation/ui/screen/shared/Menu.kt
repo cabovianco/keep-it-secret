@@ -31,7 +31,7 @@ data class MenuItem(
     val onClick: () -> Unit,
     val leadingContent: @Composable () -> Unit,
     val trailingContent: (@Composable () -> Unit)? = null,
-    val enabled: Boolean = true
+    val clickable: Boolean = true
 )
 
 @Composable
@@ -90,7 +90,7 @@ private fun AppMenuItem(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
-            .clickable(enabled = item.enabled) { item.onClick() }
+            .clickable(enabled = item.clickable) { item.onClick() }
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
