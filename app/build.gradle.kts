@@ -54,9 +54,13 @@ dependencies {
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlin.serialization)
+
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
 
     testImplementation(libs.junit)
 
