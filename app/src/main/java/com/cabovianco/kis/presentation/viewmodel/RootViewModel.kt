@@ -1,7 +1,6 @@
 package com.cabovianco.kis.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.cabovianco.kis.domain.repository.AuthRepository
 import com.cabovianco.kis.domain.usecase.auth.IsLoggedInUseCase
 import com.cabovianco.kis.presentation.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -3,7 +3,6 @@ package com.cabovianco.kis.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cabovianco.kis.domain.model.SecretComposeItem
-import com.cabovianco.kis.domain.model.SecretItem
 import com.cabovianco.kis.domain.usecase.SendSecretUseCase
 import com.cabovianco.kis.presentation.state.ComposeState
 import com.cabovianco.kis.presentation.state.ComposeUiState
