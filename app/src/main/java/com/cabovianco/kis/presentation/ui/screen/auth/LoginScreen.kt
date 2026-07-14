@@ -14,6 +14,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -24,20 +26,27 @@ import com.cabovianco.kis.presentation.ui.screen.auth.shared.EmailTextField
 import com.cabovianco.kis.presentation.ui.screen.auth.shared.PasswordTextField
 import com.cabovianco.kis.presentation.ui.screen.shared.AppPrimaryButton
 import com.cabovianco.kis.presentation.ui.screen.shared.AppTextButton
+import com.cabovianco.kis.presentation.viewmodel.LoginViewModel
 
 @Composable
-fun LoginScreen(onRegisterClick: () -> Unit, modifier: Modifier = Modifier) {
+fun LoginScreen(
+    onRegisterClick: () -> Unit,
+    viewModel: LoginViewModel,
+    modifier: Modifier = Modifier
+) {
+    val uiState by viewModel.uiState.collectAsState()
+
     Scaffold(
         modifier = modifier,
         bottomBar = {
-            AuthFooter(onSignInClick = {}, onRegisterClick = onRegisterClick)
+            AuthFooter(onSignInClick = { viewModel.signIn() }, onRegisterClick = onRegisterClick)
         }
     ) {
         LoginContent(
-            email = "",
-            password = "",
-            onEmailChange = {},
-            onPasswordChange = {},
+            email = uiState.email,
+            password = uiState.password,
+            onEmailChange = { email -> viewModel.onEmailChange(email) },
+            onPasswordChange = { password -> viewModel.onPasswordChange(password) },
             modifier = Modifier.padding(it)
         )
     }
