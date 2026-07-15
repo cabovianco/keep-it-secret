@@ -25,6 +25,7 @@ import com.cabovianco.kis.presentation.ui.screen.shared.MenuItem
 @Composable
 fun SettingsScreen(
     onNavBack: () -> Unit,
+    onLogOutClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -34,6 +35,7 @@ fun SettingsScreen(
         SettingsContent(
             isNotificationEnabled = true,
             onNotificationEnabledChange = {},
+            onLogOutClick = onLogOutClick,
             modifier = Modifier.padding(it)
         )
     }
@@ -43,6 +45,7 @@ fun SettingsScreen(
 private fun SettingsContent(
     isNotificationEnabled: Boolean,
     onNotificationEnabledChange: (Boolean) -> Unit,
+    onLogOutClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -53,7 +56,8 @@ private fun SettingsContent(
     ) {
         AccountMenu(
             isNotificationEnabled = isNotificationEnabled,
-            onNotificationEnabledChange = onNotificationEnabledChange
+            onNotificationEnabledChange = onNotificationEnabledChange,
+            onLogOutClick = onLogOutClick
         )
     }
 }
@@ -62,6 +66,7 @@ private fun SettingsContent(
 private fun AccountMenu(
     isNotificationEnabled: Boolean,
     onNotificationEnabledChange: (Boolean) -> Unit,
+    onLogOutClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     AppMenu(
@@ -73,7 +78,7 @@ private fun AccountMenu(
                     isChecked = isNotificationEnabled,
                     onCheckedChange = onNotificationEnabledChange
                 ),
-                logoutMenuOption { },
+                logoutMenuOption { onLogOutClick() },
                 deleteAccountMenuOption { }
             )
         )

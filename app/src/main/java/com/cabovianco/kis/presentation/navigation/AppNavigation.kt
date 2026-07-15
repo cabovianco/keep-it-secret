@@ -8,6 +8,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -79,13 +80,19 @@ fun AppNavigation(modifier: Modifier = Modifier) {
 
         composable<Screen.Settings> {
             SettingsScreen(
+                onLogOutClick = {
+                    rootViewModel.signOut()
+                    navController.navigate(Screen.Auth.Login) {
+                        popUpTo(Screen.Auth.Login) { inclusive = true }
+                    }
+                },
                 onNavBack = { navController.navigateUp() }
             )
         }
     }
 }
 
-private fun AuthUiEvent.handle(navController: androidx.navigation.NavController) {
+private fun AuthUiEvent.handle(navController: NavController) {
     when (this) {
         is AuthUiEvent.SignIn -> {
             navController.navigate(Screen.Inbox)
