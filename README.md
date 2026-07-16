@@ -4,11 +4,11 @@ KIS is an ephemeral messaging app designed to send "secrets" that are automatica
 It ensures that messages do not remain stored in the database after being consumed by the recipient.
 
 ## Features
-- **Registration and Login**: User authentication using email and password.
-- **Username Identification**: Users are identified by a username to receive secrets.
-- **Send Secrets**: Interface to compose and send direct messages to other users.
-- **Secrets Inbox**: List of received secrets pending to be read.
-- **Single Read (Self-Destruct)**: Secrets are permanently deleted from the database immediately after being opened and closed by the recipient.
+- **Registration and Login:** User authentication using email and password.
+- **Username Identification:** Users are identified by a username to receive secrets.
+- **Send Secrets:** Interface to compose and send direct messages to other users.
+- **Secrets Inbox:** List of received secrets pending to be read.
+- **Single Read (Self-Destruct):** Secrets are permanently deleted from the database immediately after being opened and closed by the recipient.
 
 ## Screenshots
 |                                              |                                              |
