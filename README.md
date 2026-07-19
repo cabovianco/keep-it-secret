@@ -34,13 +34,12 @@ It ensures that messages do not remain stored in the database after being consum
 
 ## Technologies
 
-- **Platform & Language:** Android, Kotlin.
-- **Architecture:** Clean Architecture, MVVM, UDF (Unidirectional Data Flow).
-- **UI:** Jetpack Compose, Material 3.
-- **Data & Concurrency:** Firebase Firestore, Firebase Auth, Kotlin Coroutines, Kotlin Flow, Kotlin Serialization.
-- **Monitoring:** Firebase Crashlytics, Firebase Analytics.
+- **Language:** Kotlin.
+- **Architecture:** MVVM, Clean Architecture, UDF.
+- **UI:** Jetpack Compose, Material Design 3, Navigation Compose.
+- **Firebase:** Authentication, Cloud Firestore, Crashlytics.
+- **Asynchronous & Data:** Kotlin Coroutines, Kotlin Flow, Kotlin Serialization.
 - **Dependency Injection:** Dagger Hilt.
-- **Navigation:** Navigation Compose.
 
 ## App Structure
 
